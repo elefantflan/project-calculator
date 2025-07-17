@@ -1,22 +1,22 @@
-const add = function(a,b) {
-    return a+b
-  };
-  
-const subtract = function(a,b) {
-    return a-b
-  };
-  
-const multiply = function(array) {
-    return array.reduce((item,currentValue)=> item*currentValue);
-  };
+const container = document.querySelector(".container");
+const screen = document.querySelector(".screen");
+const number = document.querySelector(".number");
+const operate = document.querySelector(".operate");
+const buttons = document.querySelectorAll(".button");
 
-const divide = function(a,b){
-    return a/b;
+//screen respond to button press
+const one = document.querySelector("#one");
+const add = document.querySelector("#add");
+const equal = document.querySelector("#equal");
+
+one.addEventListener("click", ()=>
+{
+    screen.textContent += Number(one.textContent);
 }
+)
 
-const calculator = function(a, operator, b){
-    return a + operator + b;
+add.addEventListener("click", ()=>
+{
+    screen.textContent += "+";
 }
-
-//screen
-document.getElement('.screen')
+);

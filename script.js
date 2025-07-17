@@ -2,21 +2,19 @@ const container = document.querySelector(".container");
 const screen = document.querySelector(".screen");
 const number = document.querySelector(".number");
 const operate = document.querySelector(".operate");
-const buttons = document.querySelectorAll(".button");
+const buttons = document.querySelectorAll("button");
 
 //screen respond to button press
 const one = document.querySelector("#one");
 const add = document.querySelector("#add");
 const equal = document.querySelector("#equal");
 
-one.addEventListener("click", ()=>
-{
-    screen.textContent += Number(one.textContent);
-}
-)
+buttons.forEach(button =>
+    {
+        button.addEventListener("click", ()=>
+        {
+            screen.textContent += button.textContent;
+        });
+    });
 
-add.addEventListener("click", ()=>
-{
-    screen.textContent += "+";
-}
-);
+

@@ -1,5 +1,10 @@
 CALCULATOR
 
-()screen responds to button press, numbers and operators
+(x)screen translates button text\
 
-()basic addition 1 + 1 = 2
+() three variables
+    >first number
+    >operator
+    >second number
+
+() operate function

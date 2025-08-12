@@ -81,26 +81,29 @@
         const num = document.querySelectorAll('#num');
         const op = document.querySelectorAll('#op');
         //value
-        let a = 0;
-        let b = 0;
-        let array = [a,b];
+
+        let array = [];
 
         num.forEach(btn=>{
             btn.addEventListener('click',()=>{
                 //display reflects content of btn clicked
                 display.textContent += btn.textContent;
             })
+            if(array[1]==='+'){
+                return display.textContent = '';
+            }
         })
 
         op.forEach(btn=>{
             btn.addEventListener('click', ()=>{
-                array[0] = Number(display.textContent);
+                array.push((Number(display.textContent)));
                 array[1] = btn.textContent;
+                display.textContent = '';
                 return console.log(array);
             })
         })
         equal.addEventListener('click', ()=>{
-            array[2] = Number(display.textContent);
+            array[2]=(Number(display.textContent));
             return operate();
             return console.log(array);
         })
@@ -112,6 +115,7 @@
         })
 
         //functions
+        
         function buttonPress(){
             if(array[1]==='+'
             ||array[1]==='-'
@@ -141,6 +145,7 @@
             else if (array[1]==="/"){
                 return divide(array);
             }
+            return console.log(array);
         }
         function add(array){
             array.splice(1,1);

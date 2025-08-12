@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display"></div>
+        <div class="box">
+            <button id="num">1</button>
+            <button id="num">2</button>
+            <button id="num">3</button>
+            <button id="num">4</button>
+            <button id="num">5</button>
+            <button id="num">6</button>
+            <button id="num">7</button>
+            <button id="num">8</button>
+            <button id="num">9</button>
+            <button id="num">0</button>
+        </div>
+        <div class="control">
+            <button id="op">+</button>
+            <button id="op">-</button>
+            <button id="op">*</button>
+            <button id="op">/</button>
+        </div>
+        <div class="misc">
+            <button id="equal">=</button>
+            <button id="clear">c</button>
+        </div>
+    </div>
+
+    <style>
+        .calculator{
+            display:flex;
+            flex-direction:column;
+            align-items: center;
+            width:110px;
+            padding:5px;
+            border:1px solid black;
+            border-radius:5%;
+            background-color: gray;
+        }
+        .box{
+            text-align: center;
+            width:100px;
+            
+        }
+        .control{
+            width:100px;
+            text-align:center;
+        }
+        .misc{
+            width:100px;
+            text-align: center;
+        }
+        button{
+            width:30px;
+            border-radius: 20%;
+        }
+        .control button
+        ,.misc button {
+            width:22px;
+        }
+        .display{
+            width:100px;
+            height:20px;
+            border:1px black solid;
+            border-radius: 5%;
+            padding:2px;
+            background-color: greenyellow;
+            margin-bottom:5px;
+        }
+    </style>
+    <script>
+
+        const display = document.querySelector('.display');
+        const num = document.querySelectorAll('#num');
+        const op = document.querySelectorAll('#op');
+        //value
+        let a = 0;
+        let b = 0;
+        let array = [a,b];
+
+        num.forEach(btn=>{
+            btn.addEventListener('click',()=>{
+                //display reflects content of btn clicked
+                display.textContent += btn.textContent;
+            })
+        })
+
+        op.forEach(btn=>{
+            btn.addEventListener('click', ()=>{
+                array[0] = Number(display.textContent);
+                array[1] = btn.textContent;
+                return console.log(array);
+            })
+        })
+        equal.addEventListener('click', ()=>{
+            array[2] = Number(display.textContent);
+            return operate();
+            return console.log(array);
+        })
+
+        clear.addEventListener('click',()=>{
+            display.textContent = '';
+            array = [0,0];
+            return console.log(array);
+        })
+
+        //functions
+        function buttonPress(){
+            if(array[1]==='+'
+            ||array[1]==='-'
+            ||array[1]==='*'
+            ||array[1]==='/'){
+                //display = content within button
+            }
+
+        //eventListener for each button
+
+        //event is triggered when button is pressed
+
+        //event adds content within button onto display every trigger
+        }
+
+
+        function operate(){
+            if(array[1]=== '+'){
+                return add(array);
+            }
+            else if (array[1]==="-"){
+                return sub(array);
+            }
+            else if (array[1]==="*"){
+                return multiply(array);
+            }
+            else if (array[1]==="/"){
+                return divide(array);
+            }
+        }
+        function add(array){
+            array.splice(1,1);
+            c = array.reduce((item,current)=>item+current,0)
+            array.push(c);
+            display.textContent = c;
+            return console.log(array);
+        }
+        function sub(array){
+            array.splice(1,1)
+            c = array.reduce((item,current)=>item-current)
+            display.textContent = c;
+            array.push(c)
+            return console.log(array);
+        }
+        function multiply(array){
+            array.splice(1,1)
+            c = array.reduce((item,current)=>item*current,1);
+            display.textContent = c;
+            array.push(c)
+            return console.log(array);
+        }
+        function divide(array){
+            array.splice(1,1)
+            c = array.reduce((item,current)=>item/current);
+            display.textContent = c;
+            array.push(c)
+            return console.log(array);
+        }
+
+        arr=[]
+        arr.push(1,3,5);
+        int=parseInt(arr.join(''))
+        console.log(typeof int)
+    </script>
+</body>
+</html>

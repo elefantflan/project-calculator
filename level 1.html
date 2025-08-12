@@ -112,7 +112,7 @@
         }
         function sub(array){
             array.splice(1,1)
-            c = array.reduce((item,current)=>item-current,0)
+            c = array.reduce((item,current)=>item-current)
             display.textContent = c;
             array.push(c)
             return console.log(array);

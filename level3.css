@@ -1,0 +1,46 @@
+div{
+    margin-bottom:20px;
+}
+
+.calculator{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    flex:auto;
+
+    width:250px;
+    height:400px;
+
+    padding: 20px;
+    padding-left:0;
+    padding-right:0;
+    
+    border:2px solid #aaaaaa;
+    border-radius: 2%;
+}
+
+.display{
+    width:200px;
+    height:200px;
+
+    border:1px solid #cccccc;
+    border-radius:2%
+}
+
+.numPad{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    
+    width:170px;
+    height:100px;
+}
+
+.opPad{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    width:170px;
+    height:50px;
+}
+
